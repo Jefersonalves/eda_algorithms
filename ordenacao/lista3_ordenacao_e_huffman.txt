@@ -1,0 +1,125 @@
+Lista de Exercícios - Lógica e Algoritmos de Ordenação 2
+
+Esta parte da lista de exercícios é composta por exercícios teóricos que abordam raciocínio lógico.
+Parte superior do formulário
+
+1. 100 Gold Coins 
+Five pirates have obtained 100 gold coins and have to divide up the loot. The pirates are all extremely intelligent, treacherous and selfish (especially the captain).
+The captain always proposes a distribution of the loot. All pirates vote on the proposal, and if half the crew or more go "Aye", the loot is divided as proposed, as no pirate would be willing to take on the captain without superior force on their side.
+If the captain fails to obtain support of at least half his crew (which includes himself), he faces a mutiny, and all pirates will turn against him and make him walk the plank. The pirates start over again with the next senior pirate as captain.
+What is the maximum number of coins the captain can keep without risking his life?
+
+Resposta: Como o capitão precisa do apoio de apenas metade da tripulação, ele pode dividir as moedas apenas entre estes. Desta forma serão 100 moedas para 3 piratas. Porém, ele pode dar uma moeda para o pirata mais novo e outra para o terceiro mais velho, e estes votarão para o capitão pois caso contrário poderiam ficar sem nada ou correr risco de morte.
+
+2. One Gold Coin 
+The five pirates mentioned previously are joined by a sixth, then plunder a ship with only one gold coin.
+After venting some of their frustration by killing all on board the ship, they now need to divvy up the one coin. They are so angry, they now value in priority order: 
+1. Their lives
+2. Getting money
+3. Seeing other pirates die.
+So if given the choice between two outcomes, in which they get the same amount of money, they'd choose the outcome where they get to see more of the other pirates die.
+How can the captain save his skin?
+
+Resposta: O capitão poderia ceder a moeda ao pirata mais novo, pois qualquer outro correria risco de vida ao tentar manter a moeda para si.
+
+Esta parte da lista de exercícios é composta por exercícios práticos que abordam Algoritmos de Ordenação.
+
+3. Implemente o Merge Sort de forma recursiva, ou seja, que divide o vetor aproximadamente ao meio em cada passo e que encerra a recursão quando obtém um vetor de apenas uma posição (que, por definição, já está ordenado). Apresente de forma gráfica as trocas enquanto elas ocorrem.
+
+Resposta: ver merge_sort.py
+
+4. Implemente o Radix Sort utilizando o Counting Sort. Comece pelo algarismo mais significativo, utilizando os baldes do Bucket Sort para garantir o funcionamento correto. 
+
+5. Gere o código de Huffman para o nome de um jogo e uma série de TV de sua preferência. Os nomes devem conter pelo menos dez letras.
+
+Resposta:
+--------------------
+THE_GAME_OF_THRONES
+--------------------
+T [2]   110
+H [2]   111
+E [3]   010
+_ [3]   001
+G [1]   00000
+A [1]   00001
+M [1]   1000
+O [2]   011
+F [1]   1001
+R [1]   1010
+N [1]   1011
+S [1]   0001
+
+ /\    /\    /\
+G  A  M  F  R  N
+(2)   (2)   (2)
+
+ 
+  /\      / \     /\
+ /\ S    /\ /\   T  H
+G  A    M F R N
+(3)     (4)      (4)
+
+  /\
+ E  O
+ (5)
+
+   /\       /      \
+  /\ _     / \     /\
+ /\ S     /\ /\   T  H
+G  A     M F R N
+(6)      (8)
+
+	/     \
+   /\     /\
+  /\ _   E  O
+ /\ S 
+G  A 
+(11)
+
+			
+
+			/ \
+	      /     \
+
+	  / \            /  \
+     /   \          /    \
+	/     \        /      \
+   /\     /\      / \     /\
+  /\ _   E  O    /\ /\   T  H
+ /\ S           M F R N
+G  A 
+(19)
+
+
+------------
+POKEMON_GO
+------------
+
+P [1]   100
+O [3]   011
+K [1]   101
+E [1]   110
+M [1]   111
+N [1]   000
+_ [1]   001
+G [1]   010
+
+ /\    /\    /\
+p  K  E  M  N  _
+(2)   (2)   (2)
+
+ /\     / \
+G  O   /\ /\
+(4)   P K E M
+      (4)
+
+  / \
+ /\ /\
+N _ G O
+(6)
+
+    /     \
+   /       \
+  / \     / \
+ /\ /\   /\ /\
+N _ G O P K E M

@@ -1,0 +1,23 @@
+Lista de Exercícios - Lógica e Algoritmos de Busca
+
+Esta parte da lista de exercícios é composta por exercícios teóricos que abordam raciocínio lógico.
+
+1. Três músicos, João, Antônio e Francisco, tocam harpa, violino e piano. Contudo, não se sabe quem toca o quê. Sabe-se que o Antônio não é o pianista. Mas o pianista ensaia sozinho na Terça. O João ensaia com o Violoncelista às Quintas. Quem toca o quê? 
+
+Resposta: Como Antônio não é pianista, ele toca harpa ou violino. Além disso, o pianista será João ou Francisco. Como o João ensaia com o violoncelista e o pianista ensaia sozinho, logo   João não toca violino e não toca piano, portanto, toca harpa. Como o Antônio tocava harpa ou violino, agora só o resta o violino. O pianista seria João ou Francisco, mas agora sabemos que João toca harpa, logo, Francisco toca piano.
+
+2. No antigo Egito, havia um prisioneiro numa cela com duas saídas, cada uma delas com um guarda. Cada saída dava para um corredor diferente em que um dava para o campo e, portanto, para a liberdade e o outro para um fosso de crocodilos. Só os guardas sabiam qual a saída certa, mas um deles dizia sempre a verdade e outro mentia sempre. O prisioneiro não sabia nem qual a saída certa nem qual o guarda que dizia a verdade. Qual a pergunta (e uma só pergunta) que o prisioneiro deveria fazer a um dos guardas ao acaso, para saber qual a porta certa? 
+
+Resposta: O prisioneiro devia perguntar para um dos guardas a resposta que o seu colega daria ao perguntar sobre a saída certa. Se ele perguntar ao guarda que diz a verdade, ele dirá o que o colega mentiroso diria, ou seja, a saída errada. Se ele perguntar ao guarda que sempre mente, ele dirá o oposto do que o colega que diz a verdade, ou seja, a saída errada. Portanto, ao receber a resposta ele deve negá-la para descobrir a saída certa.
+
+3. Três pessoas se registram em um hotel. Elas pagam R$30,00 ao gerente e vão para seus quartos. O gerente nota que a diária é de R$25,00 e entrega R$5,00 ao mensageiro do hotel para ele devolver aos hóspedes. No caminho, o mensageiro conclui que seria complicado dividir R$5,00 entre 3 pessoas, então ele embolsa R$2,00 e entrega R$1,00 para cada pessoa. Agora, cada um pagou R$10,00 e pegou R$1,00 de volta. Então, cada um pagou R$9,00, totalizando R$27,00. O mensageiro tem R$2, totalizando R$29. Onde está o outro R$1,00?  
+
+Resposta: Se cada hospede pagou 10 reais no inicio e o mensageiro embolsou 2, vemos que os três hospedes pagaram em conjunto 28 reais, fazendo a divisão, temos que cada hospede contribuiu realmente com 9 reais e 1/3, e não com 9.
+
+Esta parte da lista de exercícios é composta por exercícios práticos que abordam Algoritmos de Busca.
+
+4. Com base no código da busca sequencial, evolua o código para uma busca sequencial com índice primário.
+
+5. Com base no código da busca binária, desenvolva a mesma idéia em uma lista em anel.
+
+6. Modifique o código da busca binária, trocando o cálculo dos índices inferiores e superiores de modo a obter uma busca por interpolação. Utilize o cálculo dado em sala. Teste o tempo gasto pela busca para encontrar um valor em um vetor de 10, 25, 50, 100, 500, mil, dez mil, cem mil e um milhão de posições. A taxa de crescimento é ou não é da ordem de log(log(n))?
