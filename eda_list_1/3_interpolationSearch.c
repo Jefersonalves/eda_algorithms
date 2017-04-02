@@ -27,7 +27,7 @@ int binary_search(int *array, int key){
 
  printf("\nProcurando %d...\n\n", key);
 
- while(left <= right && cont < 10) {
+ while(left <= right) {
    middle = left + (right - left) * ((key - array[left])/(array[right] - array[left]));
 
    /*printf("middle: %d  left: %d   right: %d\n", middle, left, right);*/
@@ -35,7 +35,6 @@ int binary_search(int *array, int key){
    if(array[middle] < key) left = middle + 1;
    else if(array[middle] > key) right = middle - 1;
    else if(array[middle] == key) return middle;
-   cont++;
  }
 
  return -1;
