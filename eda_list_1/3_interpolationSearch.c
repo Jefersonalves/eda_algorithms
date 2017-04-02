@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX 500
+#define MAX 10
 
 void fill_array (int *array) {
-
+ 
   int i;
   for (i = 0; i < MAX; i++)
-    array[i] = i + MAX;
+    array[i] = 10*i + 2; //função geradora de valores
 }
 
 void print(int *array) {
@@ -18,26 +18,35 @@ void print(int *array) {
     printf("Posicao: %d Chave: %d\n", i, array[i]);
 }
 
+int interpolation_search(int *array, int search_value){
+  
+  int left = 0;
+  int right = MAX - 1;
+  int middle = 0;
 
-int binary_search(int *array, int key){
+  while(left <= right) {
 
- int left = 0;
- int right = MAX - 1;
- int middle = 0, cont = 0;
+    //fórmula para aplicar a interpolacao linear
+    middle = left + ((right - left) * (search_value - array[left])) / (array[right] - array[left]); 
 
- printf("\nProcurando %d...\n\n", key);
+    printf("middle: %d, left: %d, array[left]: %d, right: %d, array[right]: %d\n", middle, left, array[left], right, array[right]);
 
- while(left <= right) {
-   middle = left + (right - left) * ((key - array[left])/(array[right] - array[left]));
+    if(middle > right || middle < left){  //caso a chave calculada extrapole os limites do vetor
+      return -1;
+    }else{ //caso não extrapole, reajustar o intervalo de busca
+      if(array[middle] == search_value){
+        return middle;
+      }else{
+        if(array[middle] > search_value){
+          right = middle - 1;
+        }else{
+          left = middle + 1;
+        } 
+      }
+    }
 
-   /*printf("middle: %d  left: %d   right: %d\n", middle, left, right);*/
-
-   if(array[middle] < key) left = middle + 1;
-   else if(array[middle] > key) right = middle - 1;
-   else if(array[middle] == key) return middle;
- }
-
- return -1;
+  }
+  return -1;
 }
 
 int main () {
@@ -54,12 +63,16 @@ int main () {
   printf("Procurar: " );
   scanf("%d", &search);
 
+  //contagem do tempo de atuação da função de busca binária
   time_start = clock();
-  result = binary_search(array, search);
+  result = interpolation_search(array, search);
   time_stop = clock();
+
+  //imprime resultado da busca
   if(result == -1) printf("Elemeto nao encontrado.\n");
   else printf("Elemento encontrado na posicao %d\nChave: %d\n", result, array[result]);
 
+  //imprime resultado da contagem de tempo
   total_time = ((double)(time_stop - time_start))/CLOCKS_PER_SEC;
   printf("Vetor de %d posicoes - Tempo de Execucao: %f\n", MAX, total_time);
   return 0;
