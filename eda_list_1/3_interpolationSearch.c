@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX 10
+#define MAX 500
 
 void fill_array (int *array) {
- 
+
   int i;
   for (i = 0; i < MAX; i++)
     array[i] = 10*i + 2; //função geradora de valores
@@ -19,15 +19,15 @@ void print(int *array) {
 }
 
 int interpolation_search(int *array, int search_value){
-  
+
   int left = 0;
   int right = MAX - 1;
   int middle = 0;
 
-  while(left <= right) {
+  while(left < right) {
 
     //fórmula para aplicar a interpolacao linear
-    middle = left + ((right - left) * (search_value - array[left])) / (array[right] - array[left]); 
+    middle = left + ((right - left) * (search_value - array[left])) / (array[right] - array[left]);
 
     printf("middle: %d, left: %d, array[left]: %d, right: %d, array[right]: %d\n", middle, left, array[left], right, array[right]);
 
@@ -41,7 +41,7 @@ int interpolation_search(int *array, int search_value){
           right = middle - 1;
         }else{
           left = middle + 1;
-        } 
+        }
       }
     }
 
