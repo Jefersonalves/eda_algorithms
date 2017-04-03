@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 10
+#define MAX 500
 
 typedef struct record{
 	int key;
@@ -35,12 +35,16 @@ void indexed_search(record record[], INDEX index[], float search){
 	int position;
 	for(int count = 0; count < MAX/5; count++) {
 		if(index[count].value > search){
-			position = sequential_search(record, search, index[count - 1].value, index[count].value);
+			position = sequential_search(record, search, index[count - 1].kindex, index[count].kindex);
 			break;
 		}
 	}
 
-	printf("Position: %d value: %.2f\n", position, record[position].value);
+	if(position > 0) {
+		printf("Position: %d value: %.2f\n", position, record[position].value);
+	} else {
+		printf("Elemento nao encontrado.\n");
+	}
 }
 
 void fill_index (record record[], INDEX index[]){
