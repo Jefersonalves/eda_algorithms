@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX 11
+#define MAX 1000
 
 void random_numbers(int *heap){
 
@@ -11,7 +11,7 @@ void random_numbers(int *heap){
 
   do {
     srand(clock());
-    heap[index++] = rand() % 100;
+    heap[index++] = rand() % MAX;
   }while (index != MAX);
 }
 
@@ -23,20 +23,20 @@ int _right(int index) {
   return 2*index+1;
 }
 
-void heapfy (int *heap, int index) {
+void heapfy (int *heap, int index, int heap_size) {
 
   int left = _left(index);
   int right = _right(index);
   int max = index;
   int aux;
 
-  if(left <= heap[0] && heap[left] > heap[index]) max = left;
-  if(right <= heap[0] && heap[right] > heap[max]) max = right;
+  if(left <= heap_size && heap[left] > heap[index]) max = left;
+  if(right <= heap_size && heap[right] > heap[max]) max = right;
   if(max != index) {
     aux = heap[index];
     heap[index] = heap[max];
     heap[max] = aux;
-    heapfy(heap, max);
+    heapfy(heap, max, heap_size);
   }
 }
 
@@ -45,7 +45,7 @@ void building_heap (int *heap, int heap_size) {
   int index;
   /*Chama o heapfy pra cada raiz, comecando da ultima*/
   for(index = heap_size; index > 0; index--) {
-    heapfy(heap, index);
+    heapfy(heap, index, heap_size);
   }
 }
 
@@ -53,7 +53,7 @@ void print_heap (int *heap){
 
   int index = 0;
 
-  while(index < heap[0]) {
+  while(index <= heap[0]) {
     printf("%d ", heap[index++]);
   }
   printf("\n");
@@ -72,21 +72,20 @@ void heapsort(int *heap) {
     heap[index] = heap[1];
     heap[1] = aux;
     building_heap(heap, --index);
-    print_heap(heap);
   }
   printf("\n");
 }
 
 int main () {
 
-  /*int heap[] = {9, 15, 8, 4, 7, 5, 3, 1, 2, 6};*/
-  int heap[MAX] = {10, 16, 4, 10, 14, 7, 9, 3, 2, 8, 1};
+  int heap[MAX];
 
-/*  random_numbers(heap);*/
+  random_numbers(heap);
 
   print_heap(heap);
   heapsort(heap);
   print_heap(heap);
+  printf("teste");
 
   return 0;
 }
